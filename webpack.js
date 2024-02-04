@@ -13,7 +13,16 @@ const devConfig = require('./webpack.dev.js')
 const devMode = process.env.NODE_ENV !== 'production'
 const publicPath = '/'
 
-const dotEnvConfig = require('dotenv').config({ systemvars: !devMode })
+let dotEnvConfig
+if (!devMode) {
+  dotEnvConfig = {
+    GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
+    GOOGLE_OAUTH_CLIENT_ID: process.env.GOOGLE_OAUTH_CLIENT_ID,
+    GOOGLE_OAUTH_CLIENT_SECRET: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
+  }
+} else {
+  dotEnvConfig = require('dotenv').config().parsed
+}
 
 console.log(dotEnvConfig) // eslint-disable-line
 
@@ -114,7 +123,7 @@ const commonConfig = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': JSON.stringify({
-        ...dotEnvConfig.parsed,
+        ...dotEnvConfig,
         BASE_PATH: publicPath,
       }),
     }),

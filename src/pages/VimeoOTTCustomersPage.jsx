@@ -28,7 +28,7 @@ export const VimeoOTTCustomersPage = () => {
     axios({
       auth: {
         password: '',
-        username: 'S8FRyUDeiz5329j5sSoWjYdY-C9_uGYT',
+        username: process.env.VIMEO_API_KEY,
       },
       headers: {
         'Content-Type': 'application/json',

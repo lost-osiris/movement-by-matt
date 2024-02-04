@@ -12,9 +12,15 @@ export const AuthProvider = (props) => {
 
   const setUser = (token) => {
     if (token) {
-      localStorage.setItem('jwt', token)
-      setAuth({ isAuthenticated: true, user: jwtDecode(token) })
-      navigate('/vimeo-ott-customers')
+      let user = jwtDecode(token)
+      if (
+        user.email === 'farva74@gmail.com' ||
+        user.email === 'matt@movementbymatt.com'
+      ) {
+        localStorage.setItem('jwt', token)
+        setAuth({ isAuthenticated: true, user: user })
+        navigate('/vimeo-ott-customers')
+      }
     }
   }
 

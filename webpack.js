@@ -11,7 +11,7 @@ const prodConfig = require('./webpack.prod.js')
 const devConfig = require('./webpack.dev.js')
 
 const devMode = process.env.NODE_ENV !== 'production'
-const publicPath = devMode ? '/' : `${resolve(__dirname, 'build')}`
+const publicPath = '/'
 
 const dotEnvConfig = require('dotenv').config()
 

@@ -15,6 +15,8 @@ const publicPath = '/'
 
 const dotEnvConfig = require('dotenv').config({ systemvars: !devMode })
 
+console.log(dotEnvConfig) // eslint-disable-line
+
 const commonConfig = {
   context: resolve(__dirname, 'src/'),
   devtool: devMode ? 'eval-source-map' : 'source-map',

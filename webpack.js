@@ -19,6 +19,7 @@ if (!devMode) {
     GOOGLE_API_KEY: process.env.GOOGLE_API_KEY,
     GOOGLE_OAUTH_CLIENT_ID: process.env.GOOGLE_OAUTH_CLIENT_ID,
     GOOGLE_OAUTH_CLIENT_SECRET: process.env.GOOGLE_OAUTH_CLIENT_SECRET,
+    VIMEO_API_KEY: process.env.VIMEO_API_KEY,
   }
 } else {
   dotEnvConfig = require('dotenv').config().parsed

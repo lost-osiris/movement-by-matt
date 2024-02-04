@@ -13,7 +13,7 @@ const devConfig = require('./webpack.dev.js')
 const devMode = process.env.NODE_ENV !== 'production'
 const publicPath = '/'
 
-const dotEnvConfig = require('dotenv').config({ systemvars: devMode })
+const dotEnvConfig = require('dotenv').config({ systemvars: !devMode })
 
 const commonConfig = {
   context: resolve(__dirname, 'src/'),
